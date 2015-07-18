@@ -1,0 +1,16 @@
+{
+  "name": "ngtodo",
+  "version": "0.0.1",
+  "authors": [
+    "Mike Griffith <bikegriffith@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "angular-bootstrap": "~0.13.0",
+    "angular-resource": "~1.4.3",
+    "paper-less": "*",
+    "lodash": "~3.10.0"
+  }
+}

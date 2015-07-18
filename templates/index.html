@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <title>Hola PyOhio 2015</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bower_components/paper-less/css/paper.min.css">
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">py-ng-todo</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://twitter.com/bikegriffith" target="_blank">@bikegriffith</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top:100px">
+      <div ng-include="'/static/partials/todo-container.html'"></div>
+    </div>
+
+    <script src="/static/bower_components/angular/angular.js"></script>
+    <script src="/static/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/static/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/static/bower_components/lodash/lodash.min.js"></script>
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
