@@ -20,26 +20,14 @@
     var self = this;
 
     self.init = function() {
-      TodoResource.query().$promise.then(function(todos) {
+      TodoResource.query(function(todos) {
         self.byStatus = _.groupBy(todos, 'status');
-        console.log('Loaded todos by status', self.byStatus);
       });
     };
 
-    self.init();
-
-    self.assign = function(task) {
-      task.status = 'Assigned';
-      TodoResource.update({id: task.id}, task).$promise.then(function(todo) {
-        console.log('updated', todo);
-        self.init();
-      });
-    };
-
-    self.complete = function(task) {
-      task.status = 'Done';
-      TodoResource.update({id: task.id}, task).$promise.then(function(todo) {
-        console.log('updated', todo);
+    self.changeStatus = function(task, status) {
+      task.status = status;
+      TodoResource.update({id: task.id}, task, function(todo) {
         self.init();
       });
     };
@@ -47,6 +35,8 @@
     self.show = function(task) {
       self.task = task;
     };
+
+    self.init();
   });
 
 })();

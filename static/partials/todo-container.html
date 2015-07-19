@@ -6,7 +6,7 @@
       <li ng-repeat="task in ctrl.byStatus.Unassigned track by task.id">
         <h4><a href="javascript://" ng-click="ctrl.show(task)">{{task.title}}</a></h4>
         {{task.description}}
-        <button class="btn btn-default" ng-click="ctrl.assign(task)">+</button>
+        <button class="btn btn-default" ng-click="ctrl.changeStatus(task, 'Assigned')">+</button>
       </li>
     </ul>
   </div>
@@ -17,7 +17,7 @@
       <li ng-repeat="task in ctrl.byStatus.Assigned track by task.id">
         <h4><a href="javascript://" ng-click="ctrl.show(task)">{{task.title}}</a></h4>
         {{task.description}}
-        <button class="btn btn-primary" ng-click="ctrl.complete(task)">Done</button>
+        <button class="btn btn-primary" ng-click="ctrl.changeStatus(task, 'Done')">Done</button>
       </li>
     </ul>
   </div>
