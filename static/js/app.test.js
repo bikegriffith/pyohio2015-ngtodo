@@ -5,41 +5,44 @@ describe('todo list', function() {
     browser.get('http://localhost:5000');
   });
 
-  it('should list all todos', function() {
-    var todos = element.all(by.css('.todo'));
-    expect(todos.count()).toEqual(5);
+  it('should list all todos as unassigned', function() {
+    expect(countCss('.unassigned li')).toEqual(5);
   });
 
   it('should show details for a todos', function() {
-    var todo = element.all(by.css('.todo')).get(0);
-    todo.element(by.css('a')).click();
-    expect(element.all(by.css('.details')).count()).toEqual(1);
-
+    clickFirst('.unassigned a')
+    expect(countCss('.details')).toEqual(1);
   });
 
   it('should let me close the details view', function() {
-    var todo = element.all(by.css('.todo')).get(0);
-    todo.element(by.css('a')).click();
+    clickFirst('.unassigned a')
     element(by.css('.details button')).click();
-    expect(element.all(by.css('.details')).count()).toEqual(0);
+    expect(countCss('.details')).toEqual(0);
   });
 
   it('should let a button move to the doing column', function() {
-    var todos = element.all(by.css('.todo'));
-    var doing = element.all(by.css('.assigned li'));
-    expect(doing.count()).toEqual(0);
-    todos.get(0).element(by.css('button')).click();
-    expect(doing.count()).toEqual(1);
+    expect(countCss('.assigned li')).toEqual(0);
+    clickFirst('.unassigned button')
+    expect(countCss('.assigned li')).toEqual(1);
   });
 
   it('should let a button move to the done column', function() {
-    var todos = element.all(by.css('.todo'));
-    var doing = element.all(by.css('.assigned li'));
-    var done = element.all(by.css('.done li'));
-    expect(done.count()).toEqual(0);
-    todos.get(0).element(by.css('button')).click();
-    doing.get(0).element(by.css('button')).click();
-    expect(done.count()).toEqual(1);
+    expect(countCss('.done li')).toEqual(0);
+    clickFirst('.unassigned button');
+    clickFirst('.assigned button');
+    expect(countCss('.done li')).toEqual(1);
   });
-
 });
+
+
+///
+/// Quick Helpers
+///
+
+function countCss(selector) {
+  return element.all(by.css(selector)).count();
+}
+
+function clickFirst(selector) {
+  element.all(by.css(selector)).get(0).click();
+}
