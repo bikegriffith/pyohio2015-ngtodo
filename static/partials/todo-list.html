@@ -1,5 +1,5 @@
 <ul>
-  <li ng-repeat="task in todos track by task.id">
+  <li class="todo" ng-repeat="task in todos track by task.id">
     <h4><a href="javascript://" ng-click="ctrl.show(task)">{{task.title}}</a></h4>
     {{task.description}}
     <button class="btn"

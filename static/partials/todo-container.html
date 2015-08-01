@@ -1,6 +1,6 @@
 <div ng-controller="TodoListCtrl as ctrl">
 
-  <div class="col-md-3">
+  <div class="col-md-3 unassigned">
     <h3>Todo</h3>
     <todo-list todos="ctrl.byStatus.Unassigned" ctrl="ctrl"
                next-status="'Assigned'"
@@ -8,7 +8,7 @@
                btn-color="'default'"></todo-list>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-md-3 assigned">
     <h3>Doing</h3>
     <todo-list todos="ctrl.byStatus.Assigned" ctrl="ctrl"
                next-status="'Done'"
@@ -16,12 +16,12 @@
                btn-color="'default'"></todo-list>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-md-3 done">
     <h3>Done</h3>
-    <todo-list todos="ctrl.byStatus.Done" ctrl="ctrl" ></todo-list>
+    <todo-list todos="ctrl.byStatus.Done" ctrl="ctrl"></todo-list>
   </div>
 
-  <div ng-if="ctrl.task" class="col-md-3" style="border-left:3px solid #ddd">
+  <div ng-if="ctrl.task" class="col-md-3 details">
     <h3>Details</h3>
     <h4>{{ctrl.task.title}}</h4>
     <p>{{ctrl.task.description}}</p>
