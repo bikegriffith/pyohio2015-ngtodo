@@ -1,3 +1,9 @@
 *.pyc
 *.db
+*.swp
 static/bower_components
+/.Python
+/bin/
+/include/
+/lib/
+/pip-selfcheck.json
