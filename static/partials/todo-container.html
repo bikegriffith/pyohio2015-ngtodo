@@ -1,37 +1,22 @@
-<div ng-controller="TodoListCtrl as ctrl">
+<div>
 
   <div class="col-md-3 unassigned">
     <h3>Todo</h3>
-    <todo-list todos="ctrl.todos.Unassigned"
-               on-select="ctrl.show"
-               on-change-status="ctrl.changeStatus"
-               next-status="'Assigned'"
-               next-status-label="'Start'"
-               btn-color="'default'"></todo-list>
   </div>
 
   <div class="col-md-3 assigned">
     <h3>Doing</h3>
-    <todo-list todos="ctrl.todos.Assigned"
-               on-select="ctrl.show"
-               on-change-status="ctrl.changeStatus"
-               next-status="'Done'"
-               next-status-label="'Complete'"
-               btn-color="'default'"></todo-list>
   </div>
 
   <div class="col-md-3 done">
     <h3>Done</h3>
-    <todo-list todos="ctrl.todos.Done"
-               on-select="ctrl.show"></todo-list>
   </div>
 
-  <div ng-if="ctrl.todo" class="col-md-3 details">
+  <div class="col-md-3 details">
     <h3>Details</h3>
-    <h4>{{ctrl.todo.title}}</h4>
-    <p>{{ctrl.todo.description}}</p>
-    <p>{{ctrl.todo.status}}</p>
-    <button class="btn btn-default" ng-click="ctrl.todo = null">Close</button>
+    <h4>Title</h4>
+    <p>Description</p>
+    <p>Status: </p>
   </div>
 
 </div>
