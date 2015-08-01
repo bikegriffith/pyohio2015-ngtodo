@@ -46,7 +46,8 @@
           nextStatus: '=nextStatus',
           nextStatusLabel: '=nextStatusLabel',
           btnColor: '=btnColor',
-          ctrl: '=ctrl'
+          onSelect: '=onSelect',
+          onChangeStatus: '=onChangeStatus'
       },
       templateUrl: '/static/partials/todo-list.html'
     };

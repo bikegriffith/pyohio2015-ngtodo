@@ -2,7 +2,9 @@
 
   <div class="col-md-3 unassigned">
     <h3>Todo</h3>
-    <todo-list todos="ctrl.byStatus.Unassigned" ctrl="ctrl"
+    <todo-list todos="ctrl.byStatus.Unassigned"
+               on-select="ctrl.show"
+               on-change-status="ctrl.changeStatus"
                next-status="'Assigned'"
                next-status-label="'Start'"
                btn-color="'default'"></todo-list>
@@ -10,7 +12,9 @@
 
   <div class="col-md-3 assigned">
     <h3>Doing</h3>
-    <todo-list todos="ctrl.byStatus.Assigned" ctrl="ctrl"
+    <todo-list todos="ctrl.byStatus.Assigned"
+               on-select="ctrl.show"
+               on-change-status="ctrl.changeStatus"
                next-status="'Done'"
                next-status-label="'Complete'"
                btn-color="'default'"></todo-list>
@@ -18,7 +22,8 @@
 
   <div class="col-md-3 done">
     <h3>Done</h3>
-    <todo-list todos="ctrl.byStatus.Done" ctrl="ctrl"></todo-list>
+    <todo-list todos="ctrl.byStatus.Done"
+               on-select="ctrl.show"></todo-list>
   </div>
 
   <div ng-if="ctrl.task" class="col-md-3 details">
