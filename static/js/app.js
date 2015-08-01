@@ -19,26 +19,26 @@
   todoApp.controller('TodoListCtrl', function(TodoResource) {
     var self = this;
 
-    self.init = function() {
+    var init = function() {
       TodoResource.query(function(todos) {
-        self.byStatus = _.groupBy(todos, 'status');
+        self.todos = _.groupBy(todos, 'status');
+      });
+    };
+    init();
+
+    self.changeStatus = function(todo, status) {
+      todo.status = status;
+      TodoResource.update({id: todo.id}, todo, function(todo) {
+        init();
       });
     };
 
-    self.changeStatus = function(task, status) {
-      task.status = status;
-      TodoResource.update({id: task.id}, task, function(todo) {
-        self.init();
-      });
+    self.show = function(todo) {
+      self.todo = todo;
     };
-
-    self.show = function(task) {
-      self.task = task;
-    };
-
-    self.init();
   });
 
+  // <todo-list ... /> componenet
   todoApp.directive('todoList', function() {
     return {
       scope: {
