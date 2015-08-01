@@ -2,34 +2,23 @@
 
   <div class="col-md-3">
     <h3>Todo</h3>
-    <ul>
-      <li ng-repeat="task in ctrl.byStatus.Unassigned track by task.id">
-        <h4><a href="javascript://" ng-click="ctrl.show(task)">{{task.title}}</a></h4>
-        {{task.description}}
-        <button class="btn btn-default" ng-click="ctrl.changeStatus(task, 'Assigned')">+</button>
-      </li>
-    </ul>
+    <todo-list todos="ctrl.byStatus.Unassigned" ctrl="ctrl"
+               next-status="'Assigned'"
+               next-status-label="'Start'"
+               btn-color="'default'"></todo-list>
   </div>
 
   <div class="col-md-3">
     <h3>Doing</h3>
-    <ul>
-      <li ng-repeat="task in ctrl.byStatus.Assigned track by task.id">
-        <h4><a href="javascript://" ng-click="ctrl.show(task)">{{task.title}}</a></h4>
-        {{task.description}}
-        <button class="btn btn-primary" ng-click="ctrl.changeStatus(task, 'Done')">Done</button>
-      </li>
-    </ul>
+    <todo-list todos="ctrl.byStatus.Assigned" ctrl="ctrl"
+               next-status="'Done'"
+               next-status-label="'Complete'"
+               btn-color="'default'"></todo-list>
   </div>
 
   <div class="col-md-3">
     <h3>Done</h3>
-    <ul>
-      <li ng-repeat="task in ctrl.byStatus.Done track by task.id">
-        <h4><a href="javascript://" ng-click="ctrl.show(task)">{{task.title}}</a></h4>
-        {{task.description}}
-      </li>
-    </ul>
+    <todo-list todos="ctrl.byStatus.Done" ctrl="ctrl" ></todo-list>
   </div>
 
   <div ng-if="ctrl.task" class="col-md-3" style="border-left:3px solid #ddd">

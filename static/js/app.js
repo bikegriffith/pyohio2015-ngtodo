@@ -39,4 +39,17 @@
     self.init();
   });
 
+  todoApp.directive('todoList', function() {
+    return {
+      scope: {
+          todos: '=todos',
+          nextStatus: '=nextStatus',
+          nextStatusLabel: '=nextStatusLabel',
+          btnColor: '=btnColor',
+          ctrl: '=ctrl'
+      },
+      templateUrl: '/static/partials/todo-list.html'
+    };
+  });
+
 })();
