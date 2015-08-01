@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-protractor-runner');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
     protractor: {
@@ -10,6 +11,13 @@ module.exports = function(grunt) {
         noColor: false
       },
       run: {}
+    },
+    watch: {
+      scripts: {
+        files: ['static/js/*.js', 'static/partials/*.html'],
+        tasks: ['test'],
+        options: { debounceDelay: 2000 }
+      },
     }
   });
 
